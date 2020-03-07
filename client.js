@@ -16,6 +16,21 @@ function readyNow(){
 
 let employeeFile = [];
 
+//  add employees to array
+
+function newEmployee(firstNameInput, lastNameInput, idInput, titleInput, annualSalaryInput ){
+    console.log( 'in newEmployee', firstNameInput, lastNameInput, idInput, titleInput, annualSalaryInput );
+    const newEmployeeObject = {
+        firstName: firstNameInput,
+        lastName: lastNameInput,
+        id: idInput,
+        title: titleInput,
+        annualSalary: annualSalaryInput
+    }
+    employeeFile.push( newEmployeeObject );
+    return true;
+} // end add employee to array
+
 
 
 
