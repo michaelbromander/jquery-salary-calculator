@@ -4,6 +4,10 @@ $(document).ready( readyNow );
 function readyNow(){
     console.log( 'JQ' );
 
+    // handle click event, employee in.
+    $( '#js-submitButton' ).on( 'click', addEmployeeIn );
+    // console.log( 'in addEmployeeIn', firstName, lastName, id, title, annualSalary );
+
 }
 
 // the application should have: employee first name, last name, ID, title, annual salary.
@@ -29,9 +33,26 @@ function newEmployee(firstNameInput, lastNameInput, idInput, titleInput, annualS
     }
     employeeFile.push( newEmployeeObject );
     return true;
-} // end add employee to array
+}   // end add employee to array
 
+    //  Get user input to create new employee object
+  function addEmployeeIn(){
+      let firstName = $( '#js-first' ).val();
+      let lastName = $( '#js-last' ).val();
+      let id = $( '#js-idNumber' ).val();
+      let title = $( '#js-title' ).val();
+      let annualSalary = $( '#js-annualSalary' ).val();
 
+    //   add employee in
+    newEmployee( firstName, lastName, id, title, annualSalary );
+    // empty fields
+    firstName = $( '#js-first' ).val( '' );
+    lastName = $( '#js-last' ).val( '' );
+    id = $( '#js-idNumber' ).val( '' );
+    title = $( '#js-title' ).val( '' );
+    annualSalary = $( '#js-annualSalary' ).val( '' );
+
+  } 
 
 
 
