@@ -6,7 +6,8 @@ function readyNow(){
 
     // handle click event, employee in.
     $( '#js-submitButton' ).on( 'click', addEmployeeIn );
-    // console.log( 'in addEmployeeIn', firstName, lastName, id, title, annualSalary );
+    //console.log( 'in addEmployeeIn', firstName, lastName, id, title, annualSalary );
+    calculateMonthlyExpense();
 
 }
 
@@ -54,7 +55,22 @@ function newEmployee(firstNameInput, lastNameInput, idInput, titleInput, annualS
 
   } 
 
-
+  // calculate monthly expense of salaries  
+  function calculateMonthlyExpense(){
+    console.log( 'in calculateMonthlyExpense' );
+    //  loop thru array for salaries
+    let monthlyTotal = 0;
+    for( i = 0; i < employeeFile.length; i++){
+        monthlyTotal += Number( employeeFile[ i ].annualSalary / 12);
+    }  // end for loop
+    console.log( 'monthlyTotal', monthlyTotal );
+    //diplay to DOM
+    let el = ( "#js-monthlySalary" );
+    el.empty();
+    el.append( monthlyTotal );
+    
+  } // end calculate monthly expenses
+  
 
 
 
