@@ -35,6 +35,8 @@ function newEmployee(firstNameInput, lastNameInput, idInput, titleInput, annualS
     employeeFile.push( newEmployeeObject );
     return true;
 }   // end add employee to array
+    newEmployee( 'Jen', 'Barber', '2431', 'Team Lead', '48000' );
+
 
     //  Get user input to create new employee object
   function addEmployeeIn(){
@@ -53,6 +55,8 @@ function newEmployee(firstNameInput, lastNameInput, idInput, titleInput, annualS
     title = $( '#js-title' ).val( '' );
     annualSalary = $( '#js-annualSalary' ).val( '' );
 
+    calculateMonthlyExpense();
+
   } 
 
   // calculate monthly expense of salaries  
@@ -61,16 +65,18 @@ function newEmployee(firstNameInput, lastNameInput, idInput, titleInput, annualS
     //  loop thru array for salaries
     let monthlyTotal = 0;
     for( i = 0; i < employeeFile.length; i++){
-        monthlyTotal += Number( employeeFile[ i ].annualSalary / 12);
+        monthlyTotal += Number( employeeFile[ i ].annualSalary );
     }  // end for loop
+    monthlyTotal = monthlyTotal/12;
+    
     console.log( 'monthlyTotal', monthlyTotal );
     //diplay to DOM
-    let el = ( "#js-monthlySalary" );
+    let el = $( "#js-monthlySalary" );
     el.empty();
     el.append( monthlyTotal );
     
   } // end calculate monthly expenses
-  
+
 
 
 
